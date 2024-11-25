@@ -1,0 +1,31 @@
+{% extends 'layout/base.html' %}
+
+
+{% block title %}
+    Agregar Inmueble
+{% endblock title %}
+    
+
+{% block content %}
+<main class="container">
+    <div class="row">
+        <form method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button class="btn btn-primary my-1" type="submit">Guardar</button>
+            <a href="{% url 'profile' %}" class="btn btn-outline-primary m-1">Cancelar</a>
+        </form>
+        
+    </div>
+    <div class="row">
+        <div class="col-1 ms-auto mb-5">
+            <a class="btn btn-danger my-1" href="{% url 'inmuebles_eliminar' id_inmueble=inmueble.id %}">ELIMINAR</a>
+
+        </div>
+    </div>
+</main>
+
+
+
+{% endblock content %}
+    

@@ -1,0 +1,82 @@
+[
+{
+    "model": "gestion_inmuebles.inmueble",
+    "pk": 1,
+    "fields": {
+        "nombre": "Casa en Quilpue centro",
+        "descripcion": "Casa ubicada a cuadras de estacion Quilpue",
+        "m2_construidos": 60.0,
+        "m2_totales": 80.0,
+        "estacionamientos": 1,
+        "habitaciones": 3,
+        "banos": 1,
+        "direccion": "Quilpue, calle esmeralda",
+        "comuna": 79,
+        "tipo_inmueble": "casa",
+        "precio_mensual": "700000.00",
+        "dueño": 2,
+        "is_active": true,
+        "deleted_at": null
+    }
+},
+{
+    "model": "gestion_inmuebles.inmueble",
+    "pk": 2,
+    "fields": {
+        "nombre": "Departamento en viña",
+        "descripcion": "Departamento en viña del mar, a metros de la costa",
+        "m2_construidos": 45.0,
+        "m2_totales": 45.0,
+        "estacionamientos": 1,
+        "habitaciones": 3,
+        "banos": 1,
+        "direccion": "Uno norte con libertad",
+        "comuna": 51,
+        "tipo_inmueble": "departamento",
+        "precio_mensual": "800000.00",
+        "dueño": 5,
+        "is_active": true,
+        "deleted_at": null
+    }
+},
+{
+    "model": "gestion_inmuebles.inmueble",
+    "pk": 3,
+    "fields": {
+        "nombre": "Casa en valparaiso",
+        "descripcion": "Casa en valparaiso, cerro los placeres",
+        "m2_construidos": 60.0,
+        "m2_totales": 70.0,
+        "estacionamientos": 1,
+        "habitaciones": 4,
+        "banos": 2,
+        "direccion": "valparaiso, valparaiso",
+        "comuna": 45,
+        "tipo_inmueble": "casa",
+        "precio_mensual": "700000.00",
+        "dueño": 2,
+        "is_active": true,
+        "deleted_at": null
+    }
+},
+{
+    "model": "gestion_inmuebles.inmueble",
+    "pk": 4,
+    "fields": {
+        "nombre": "Departamento en valparaiso",
+        "descripcion": "Casa en valparaiso, cerro los placeres",
+        "m2_construidos": 40.0,
+        "m2_totales": 40.0,
+        "estacionamientos": 1,
+        "habitaciones": 2,
+        "banos": 1,
+        "direccion": "valparaiso, valparaiso",
+        "comuna": 45,
+        "tipo_inmueble": "departamento",
+        "precio_mensual": "500000.00",
+        "dueño": 2,
+        "is_active": true,
+        "deleted_at": null
+    }
+}
+]

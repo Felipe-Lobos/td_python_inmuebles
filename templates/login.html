@@ -1,0 +1,28 @@
+{% extends 'layout/base.html' %}
+
+
+{% block title %}
+Inicio de sesion - Inmuebles
+{% endblock title %}
+
+
+{% block content %}
+<main class="d-flex justify-content-center align-items-center">
+    <article class="card w-25 p-5 m-auto rounded-4">
+        <h2>Iniciar Sesión</h2>
+        <form method="post">
+            {% csrf_token %}
+            <fieldset class="my-1">
+                <label class="form-label" for="{{form.username.id_for_label}}">Nombre de usuario:</label>
+                <input class="form-control" type="text" id="{{form.username.id_for_label}}" name="{{form.username.name}}">
+            </fieldset>
+            <fieldset class="my-1">
+                <label class="form-label" for="{{form.username.id_for_label}}">Contraseña:</label>
+                <input class="form-control"  type="password" id="{{form.password.id_for_label}}" name="{{form.password.name}}">
+            </fieldset>
+            <button class="btn btn-primary my-1" type="submit">Ingresar</button>
+        </form>
+    </article>
+
+</main>
+{% endblock content %}

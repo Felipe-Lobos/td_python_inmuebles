@@ -1,0 +1,114 @@
+[
+    {
+        "model": "gestion_inmuebles.region",
+        "pk": 1,
+        "fields": {
+            "nombre": "Arica y Parinacota"
+        }
+    },
+    {
+        "model": "gestion_inmuebles.region",
+        "pk": 2,
+        "fields": {
+            "nombre": "Tarapac�"
+        }
+    },
+    {
+        "model": "gestion_inmuebles.region",
+        "pk": 3,
+        "fields": {
+            "nombre": "Antofagasta"
+        }
+    },
+    {
+        "model": "gestion_inmuebles.region",
+        "pk": 4,
+        "fields": {
+            "nombre": "Atacama"
+        }
+    },
+    {
+        "model": "gestion_inmuebles.region",
+        "pk": 5,
+        "fields": {
+            "nombre": "Coquimbo"
+        }
+    },
+    {
+        "model": "gestion_inmuebles.region",
+        "pk": 6,
+        "fields": {
+            "nombre": "Valpara�so"
+        }
+    },
+    {
+        "model": "gestion_inmuebles.region",
+        "pk": 7,
+        "fields": {
+            "nombre": "Regi�n del Libertador Gral. Bernardo O�Higgins"
+        }
+    },
+    {
+        "model": "gestion_inmuebles.region",
+        "pk": 8,
+        "fields": {
+            "nombre": "Regi�n del Maule"
+        }
+    },
+    {
+        "model": "gestion_inmuebles.region",
+        "pk": 9,
+        "fields": {
+            "nombre": "Regi�n de �uble"
+        }
+    },
+    {
+        "model": "gestion_inmuebles.region",
+        "pk": 10,
+        "fields": {
+            "nombre": "Regi�n del Biob�o"
+        }
+    },
+    {
+        "model": "gestion_inmuebles.region",
+        "pk": 11,
+        "fields": {
+            "nombre": "Regi�n de la Araucan�a"
+        }
+    },
+    {
+        "model": "gestion_inmuebles.region",
+        "pk": 12,
+        "fields": {
+            "nombre": "Regi�n de Los R�os"
+        }
+    },
+    {
+        "model": "gestion_inmuebles.region",
+        "pk": 13,
+        "fields": {
+            "nombre": "Regi�n de Los Lagos"
+        }
+    },
+    {
+        "model": "gestion_inmuebles.region",
+        "pk": 14,
+        "fields": {
+            "nombre": "Regi�n Ais�n del Gral. Carlos Ib��ez del Campo"
+        }
+    },
+    {
+        "model": "gestion_inmuebles.region",
+        "pk": 15,
+        "fields": {
+            "nombre": "Regi�n de Magallanes y de la Ant�rtica Chilena"
+        }
+    },
+    {
+        "model": "gestion_inmuebles.region",
+        "pk": 16,
+        "fields": {
+            "nombre": "Regi�n Metropolitana de Santiago"
+        }
+    }
+]

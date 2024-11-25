@@ -1,0 +1,57 @@
+{% extends 'layout/base.html' %}
+
+{% block title %}
+Registro de usuarios - Inmuebles
+{% endblock title %}
+
+{% block content %}
+<main class="d-flex justify-content-center align-items-center">
+    <article class="card w-25 p-2 m-5 rounded-4">
+        <div class=" p-4">
+            <h2>Registro de usuario</h2>
+            <form method="post">
+                {% csrf_token %}
+                {% if messages %}
+                    {{messages.error}}
+                {% endif %}
+                <fieldset class="my-1">
+                    <label class="form-label" for="{{form.nombres.id_for_label}}">Nombres:</label>
+                    <input class="form-control" type="text" id="{{form.nombres.id_for_label}}" name="{{form.nombres.name}}">
+                </fieldset>
+                <fieldset class="my-1">
+                    <label class="form-label" for="{{form.apellidos.id_for_label}}">Apellidos:</label>
+                    <input class="form-control" type="text" id="{{form.apellidos.id_for_label}}" name="{{form.apellidos.name}}">
+                </fieldset>
+                <fieldset class="my-1">
+                    <label class="form-label" for="{{form.rut.id_for_label}}">Rut:</label>
+                    <input class="form-control" type="text" id="{{form.rut.id_for_label}}" name="{{form.rut.name}}">
+                </fieldset>
+                <fieldset class="my-1">
+                    <label class="form-label" for="{{form.tipo_usuario.id_for_label}}">Tipo de usuario:</label>
+                    <select class="form-select" type="text" id="{{form.tipo_usuario.id_for_label}}"
+                        name="{{form.tipo_usuario.name}}">
+        
+                        {% for clave,valor in form.tipo_usuario.field.choices %}
+                                {% if clave != 'administrador' %}
+                                <option value="{{ clave }}">{{ valor }}</option>
+                                {% endif %}
+                        {% endfor %}
+                    </select>
+                </fieldset>
+                <fieldset class="my-1">
+                    <label class="form-label" for="{{form.username.id_for_label}}">Nombre de usuario:</label>
+                    <input class="form-control" type="text" id="{{form.username.id_for_label}}" name="{{form.username.name}}">
+                </fieldset>
+                <fieldset class="my-1">
+                    <label class="form-label" for="{{form.password.id_for_label}}">Contraseña:</label>
+                    <input class="form-control" type="password" id="{{form.password.id_for_label}}"
+                        name="{{form.password.name}}">
+                </fieldset>
+                <button class="btn btn-primary my-1" type="submit">Ingresar</button>
+            </form>
+        </article>
+        </div>
+
+</main>
+
+{% endblock content %}

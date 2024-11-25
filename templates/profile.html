@@ -1,0 +1,89 @@
+{% extends 'layout/base.html' %}
+
+{% block title %}
+Perfil de usuario
+{% endblock title %}
+
+
+{% block content %}
+<main class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="row">
+                {% if perms.gestion_inmuebles.add_inmueble %}
+                <a href="{% url 'inmuebles_agregar' %}" class="btn btn-primary" aria-current="page">Agregar Inmueble</a>
+                {% endif %}
+            </div>
+            <div class="row">
+                <article class="p-0 my-2">
+                    <ul class="list-group">
+                        {% for inmueble in inmuebles %}
+                            <li class="list-group-item">
+                                <p>{{inmueble}}</p>
+                    
+                                <a class="btn btn-outline-primary" href="{% url 'inmuebles_detalle' id_inmueble=inmueble.id %}">Ver</a>
+                                <a class="btn btn-outline-warning" href="{% url 'inmuebles_actualizar' id_inmueble=inmueble.id %}">Modificar</a>
+                            </li>
+                        {% endfor %}
+                            
+                    </ul>
+                </article>
+            </div>
+            
+        </div>
+        <div class="col-sm-6">
+            <article class="card p-2 rounded-4">
+                <!-- <p class="display-2">{{user.username|title}}</p> -->
+                    <h2>Datos de usuario</h2>
+                    <form method="post">
+                        {% csrf_token %}
+                        {% if messages %}
+                        {{messages.error}}
+                        {% endif %}
+                        <fieldset class="my-1">
+                            <label class="form-label" for="{{form.nombres.id_for_label}}">Nombres:</label>
+                            <input class="form-control" type="text" id="{{form.nombres.id_for_label}}"
+                                name="{{form.nombres.name}}" value="{{form.nombres.value}}">
+                        </fieldset>
+                        <fieldset class="my-1">
+                            <label class="form-label" for="{{form.apellidos.id_for_label}}">Apellidos:</label>
+                            <input class="form-control" type="text" id="{{form.apellidos.id_for_label}}"
+                                name="{{form.apellidos.name}}" value="{{form.apellidos.value}}">
+                        </fieldset>
+                        <fieldset class="my-1">
+                            <label class="form-label" for="{{form.rut.id_for_label}}">Rut:</label>
+                            <input class="form-control" type="text" id="{{form.rut.id_for_label}}"
+                                name="{{form.rut.name}}" value="{{form.rut.value}}">
+                        </fieldset>
+                        <fieldset class="my-1">
+                            <label class="form-label" for="{{form.direccion.id_for_label}}">Direccion:</label>
+                            <input class="form-control" type="text" id="{{form.direccion.id_for_label}}"
+                                name="{{form.direccion.name}}" value="{{form.direccion.value}}">
+                        </fieldset>
+                        <fieldset class="my-1">
+                            <label class="form-label" for="{{form.telefono.id_for_label}}">Telefono:</label>
+                            <input class="form-control" type="text" id="{{form.rut.id_for_label}}"
+                                name="{{form.telefono.name}}" value="{{form.telefono.value}}">
+                        </fieldset>
+                        <fieldset disabled class="my-1">
+                            <label class="form-label" for="{{form.tipo_usuario.id_for_label}}">Tipo de usuario:</label>
+                            <input readonly class="form-control" type="text" id="{{form.tipo_usuario.id_for_label}}"
+                                name="{{form.tipo_usuario.name}}" value="{{form.tipo_usuario.value}}">
+                        </fieldset>
+                        <!-- <fieldset class="my-1">
+                            <label class="form-label" for="{{form.username.id_for_label}}">Nombre de usuario:</label>
+                            <input class="form-control" type="text" id="{{form.username.id_for_label}}" name="{{form.username.name}}">
+                        </fieldset>
+                        <fieldset class="my-1">
+                            <label class="form-label" for="{{form.password.id_for_label}}">Contraseña:</label>
+                            <input class="form-control" type="password" id="{{form.password.id_for_label}}"
+                                name="{{form.password.name}}">
+                        </fieldset> -->
+                        <button class="btn btn-primary my-1" type="submit">Guardar</button>
+                    </form>
+            </article>
+        </div>
+    </div>
+
+</main>
+{% endblock content %}

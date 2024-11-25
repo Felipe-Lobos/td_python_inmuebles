@@ -1,0 +1,96 @@
+{% extends 'layout/base.html' %}
+
+{% block title %}
+Inmuebles
+{% endblock title %}
+{% load humanize %}
+
+{% block content %}
+<style>
+    .card-inmueble {
+        transition: all 0.3s ease;
+    }
+
+    .card-inmueble:hover {
+        /* box-shadow:  3px 3px 7px rgba(red, 0, 0, 5) ; */
+        box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.3);
+        scale: 1.02;
+    }
+</style>
+<main class="container mb-5">  
+    <h1>Lista de Inmuebles</h1>
+    <div class="row">
+        <form id="filter-form" action="{% url 'inmuebles' %}" method="get">
+            <div class="row">
+                <div class="col col-md-4">
+                    <select class="form-select" name="region" id="region-select">
+                        <option value="" selected>Seleccione Region</option>
+                        {% for region in regiones %}
+                        <option 
+                        value="{{ region.nombre }}" 
+                        {% if request.GET.region == region.nombre %} selected {% endif %}>
+                            {{ region.nombre }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                <div class="col col-md-4">
+                    <select class="form-select" name="comuna" id="comuna-select">
+                        <option value="" selected>Seleccione comuna</option>
+                        {% for comuna in comunas %}
+                        <option 
+                        value="{{ comuna.nombre }}" 
+                        {% if request.GET.comuna == comuna.nombre %} selected {% endif %}>
+                            {{ comuna.nombre }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col">
+                    <a class="btn btn-outline-primary " href="{% url 'inmuebles' %}">Borrar filtros</a>
+                </div>
+            </div>
+            <!-- <div class="col">
+                <button class="btn btn-primary my-1"  type="submit">Filtrar</button>
+            </div> -->
+        </form>
+
+    </div>
+    <div class="row">
+        {% for inmueble in inmuebles %}
+        <div class="col col-lg-3 col-md-4 col-sm-12 mt-4">
+            <article class="card card-inmueble h-100 my-3" style="width: 18rem;">
+                <a class="card-link stretched-link" href="{% url 'inmuebles_detalle' id_inmueble=inmueble.id %}"></a>
+                <div class="card-header">
+                    <h5 class="card-title">{{inmueble.nombre}}</h5>
+                </div>
+                <div class="card-body">
+                    <!-- <p>{{inmueble.descripcion}}</p> -->
+                    <p class="card-text display-6">${{inmueble.precio_mensual|floatformat|intcomma}}</p>
+                    <p class="card-text">{{inmueble.habitaciones}} Habitaciones | {{inmueble.banos}} Baños
+                        <br>{{inmueble.estacionamientos}} Estacionamientos
+                    </p>
+                    <p class="card-text">{{inmueble.m2_construidos|floatformat}} m² Construidos <br>
+                        {{inmueble.m2_totales|floatformat}} m² Totales</p>
+                </div>
+                <div class="card-footer">
+                    <p class="card-text mb-0">{{inmueble.comuna}}</p>
+                    <p class="card-text">{{inmueble.direccion}}</p>
+                </div>
+            </article>
+        </div>
+        {% endfor %}
+    </div>
+</main>
+
+<script>
+    document.getElementById('region-select').addEventListener('change', function() {
+        document.getElementById('filter-form').submit(); // Envía el formulario automáticamente
+    });
+    document.getElementById('comuna-select').addEventListener('change', function() {
+        document.getElementById('filter-form').submit(); // Envía el formulario automáticamente
+    });
+</script>
+
+{% endblock content %}
