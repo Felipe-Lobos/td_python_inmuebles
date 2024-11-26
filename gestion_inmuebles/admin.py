@@ -1,6 +1,6 @@
 from datetime import timezone
 from django.contrib import admin
-from .models import Inmueble, Usuario, Comuna, Region
+from .models import Inmueble, Usuario, Comuna, Region,Foto
 # from django.contrib.auth.admin import UserAdmin
 # from django.contrib.auth import get_user_model
 # Register your models here.
@@ -9,6 +9,7 @@ from .models import Inmueble, Usuario, Comuna, Region
 admin.site.register(Usuario)
 admin.site.register(Comuna)
 admin.site.register(Region)
+admin.site.register(Foto)
 
 
 

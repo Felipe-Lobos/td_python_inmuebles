@@ -17,7 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.contrib.auth import views as auth_views
-from gestion_inmuebles.views import registro, pagina_principal, profile, inmuebles,inmuebles_detalle, inmuebles_agregar, inmuebles_actualizar,inmuebles_eliminar
+from gestion_inmuebles.views import registro, pagina_principal, profile, inmuebles,inmuebles_detalle, inmuebles_agregar, inmuebles_actualizar,inmuebles_eliminar, agregar_foto_a_inmueble, inmuebles_foto_eliminar
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,4 +33,6 @@ urlpatterns = [
     path('inmuebles/<int:id_inmueble>',inmuebles_detalle,name='inmuebles_detalle'),
     path('inmuebles/<int:id_inmueble>/actualizar',inmuebles_actualizar,name='inmuebles_actualizar'),
     path('inmuebles/<int:id_inmueble>/eliminar',inmuebles_eliminar,name='inmuebles_eliminar'),
-]
+    path('inmuebles/<int:id_inmueble>/fotos/agregar',agregar_foto_a_inmueble,name='agregar_foto'),
+    path('inmuebles/<int:id_inmueble>/fotos/<int:id_foto>/eliminar',inmuebles_foto_eliminar,name='eliminar_foto'),
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

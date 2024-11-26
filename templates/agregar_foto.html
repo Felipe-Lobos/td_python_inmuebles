@@ -1,0 +1,49 @@
+{% extends 'layout/base.html' %}
+
+
+{% block title %}
+    Agregar Foto
+{% endblock title %}
+    
+
+{% block content %}
+<main class="container">
+    <div class="row">
+        <div class="col">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <h3>Agregar Foto</h3>
+                {{ form.as_p }}
+            
+                <button type="submit">Agregar</button>
+            </form>
+        </div>
+        <div class="col">
+            <article class="p-0 my-2">
+                <h2>Fotos del inmueble</h2>
+                <ul class="list-group">
+                    {% if inmueble.fotos.all %}
+                        {% for foto in inmueble.fotos.all %}
+                            <li class="list-group-item">
+                                <img class="" src="{{foto.foto.url}}" width="200px" alt="{{foto.descripcion}}" srcset="">
+                                <a class="btn btn-outline-danger" href="{% url 'eliminar_foto' id_inmueble=inmueble.id id_foto=foto.id  %}">eliminar</a>
+
+                            </li>
+                        {% endfor %}
+                    {% else %}
+                    <li class="list-group-item">
+                        <p>NO hay ninguna foto agregar aun</p>
+                    </li>
+                    {% endif %}
+                    
+                </ul>
+            </article>
+            
+        </div>
+    </div>
+</main>
+
+
+
+{% endblock content %}
+    

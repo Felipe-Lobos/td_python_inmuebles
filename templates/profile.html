@@ -20,9 +20,11 @@ Perfil de usuario
                         {% for inmueble in inmuebles %}
                             <li class="list-group-item">
                                 <p>{{inmueble}}</p>
-                    
+                
                                 <a class="btn btn-outline-primary" href="{% url 'inmuebles_detalle' id_inmueble=inmueble.id %}">Ver</a>
                                 <a class="btn btn-outline-warning" href="{% url 'inmuebles_actualizar' id_inmueble=inmueble.id %}">Modificar</a>
+                                <a class="btn btn-outline-info" href="{% url 'agregar_foto' id_inmueble=inmueble.id %}">Agregar/Eliminar Fotos</a>
+
                             </li>
                         {% endfor %}
                             

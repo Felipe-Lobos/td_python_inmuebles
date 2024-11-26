@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
-from gestion_inmuebles.forms import UsuarioForm, ProfileForm, InmuebleForm
+from gestion_inmuebles.forms import UsuarioForm, ProfileForm, InmuebleForm,FotoForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required, permission_required
-from gestion_inmuebles.models import Inmueble, Usuario,Comuna,Region
+from gestion_inmuebles.models import Inmueble, Usuario,Comuna,Region,Foto
 
 # Create your views here.
 
@@ -107,3 +107,32 @@ def inmuebles_eliminar(request, id_inmueble):
         print('bandera')
         inmueble.delete()
     return redirect('profile')
+
+def agregar_foto_a_inmueble(request,id_inmueble):
+    inmueble = Inmueble.objects.get(id=id_inmueble)
+    if request.method=='POST':
+        form = FotoForm(request.POST,request.FILES)
+        if form.is_valid():
+            foto = form.save(commit=False)
+            foto.save()
+            foto.inmueble.add(inmueble)
+            #return redirect('profile')
+            return redirect(request.META['HTTP_REFERER'])
+    else:
+        form = FotoForm()
+    context = {
+        'form':form,
+        'inmueble':inmueble
+               }
+    return render(request,'agregar_foto.html',context)
+#agregar verificacion de auth
+#AGREGAR AUTORIZACION POR PERMISOS
+def inmuebles_foto_eliminar(request, id_inmueble,id_foto):
+    inmueble = Inmueble.objects.get(id=id_inmueble)
+    foto = Foto.objects.get(pk=id_foto)
+    user = Usuario.objects.get(id=request.user.id)
+    print('eliminar foto:',foto.foto.url)
+    if inmueble.dueño == user:
+        inmueble.fotos.remove(foto)
+        print('remove')
+    return redirect('agregar_foto')

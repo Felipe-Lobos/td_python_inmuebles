@@ -8,6 +8,14 @@ Detalle Inmueble
 
 {% block content %}
 {% load static %}
+
+
+<!-- {% for foto in inmueble.fotos.all %}
+    <img src="{{foto.foto.url}}" alt="{{foto.descripcion}}">
+    <p>foto.url{{foto.url}}</p>
+    <p>foto.foto.url{{foto.foto.url}}</p>
+{% endfor %} -->
+
 <main class="container ">
     <section>
         <div class="row">
@@ -72,24 +80,36 @@ Detalle Inmueble
                 <!-- carrusel de imagenes -->
                 <article class="card">
                     <div id="carouselExampleIndicators" class="carousel slide">
-                        <div class="carousel-indicators">
+                        <!-- <div class="carousel-indicators">
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
                                 class="active" aria-current="true" aria-label="Slide 1"></button>
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
                                 aria-label="Slide 2"></button>
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
                                 aria-label="Slide 3"></button>
-                        </div>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
+                        </div> -->
+                        <div class="carousel-inner overflow-hidden" style=" width:100%; height: 600px !important;">
+                            <!-- <div class="carousel-item active">
                                 <img src="https://placehold.co/900x600" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="https://placehold.co/900x600" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="https://placehold.co/900x600" class="d-block w-100" alt="...">
-                            </div>
+                            </div> -->
+                            
+                            {% if inmueble.fotos.all %}
+                                {% for foto in inmueble.fotos.all %}
+                                    <div class="carousel-item active">
+                                        <img src="{{foto.foto.url}}" class="d-block w-100 overflow-hidden" alt="{{foto.descripcion}}">
+                                    </div>
+                                {% endfor %}
+                            {% else %}
+                                <div class="carousel-item active">
+                                    <img src="https://placehold.co/900x600" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item active">
+                                    <img src="https://placehold.co/900x600" class="d-block w-100" alt="...">
+                                </div>
+                            {% endif %}
+                                
+                            
+>
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
                             data-bs-slide="prev">

@@ -1,0 +1,17 @@
+{% extends 'layout/base.html' %}
+
+
+{% block title %}
+    Inmueble Fotos
+{% endblock title %}
+    
+
+{% block content %}
+<main class="container">
+    fotos
+    
+</main>
+
+
+{% endblock content %}
+    

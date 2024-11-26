@@ -48,7 +48,7 @@ Inmuebles
                     </select>
                 </div>
                 <div class="col">
-                    <a class="btn btn-outline-primary " href="{% url 'inmuebles' %}">Borrar filtros</a>
+                    <a class="btn btn-outline-secondary " href="{% url 'inmuebles' %}">Borrar filtros</a>
                 </div>
             </div>
             <!-- <div class="col">
@@ -57,10 +57,11 @@ Inmuebles
         </form>
 
     </div>
+    <!-- style="width: 18rem;" -->
     <div class="row">
         {% for inmueble in inmuebles %}
-        <div class="col col-lg-3 col-md-4 col-sm-12 mt-4">
-            <article class="card card-inmueble h-100 my-3" style="width: 18rem;">
+        <div class="col col-lg-3 col-md-4 col-sm-12  mt-4">
+            <article class="card card-inmueble h-100 my-3" >
                 <a class="card-link stretched-link" href="{% url 'inmuebles_detalle' id_inmueble=inmueble.id %}"></a>
                 <div class="card-header">
                     <h5 class="card-title">{{inmueble.nombre}}</h5>
@@ -73,6 +74,7 @@ Inmuebles
                     </p>
                     <p class="card-text">{{inmueble.m2_construidos|floatformat}} m² Construidos <br>
                         {{inmueble.m2_totales|floatformat}} m² Totales</p>
+                    <img src="{{inmueble.fotos.all.0.foto.url}}" class="w-100" alt="" srcset="">
                 </div>
                 <div class="card-footer">
                     <p class="card-text mb-0">{{inmueble.comuna}}</p>

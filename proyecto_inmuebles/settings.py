@@ -146,3 +146,5 @@ USE_THOUSAND_SEPARATOR = True
 # USE_L10N = True
 # USE_I18N = True
 # LANGUAGE_CODE = 'es-ES'
+MEDIA_URL = '/fotos/'
+MEDIA_ROOT = BASE_DIR / 'fotos'

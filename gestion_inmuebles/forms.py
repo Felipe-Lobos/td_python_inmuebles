@@ -1,5 +1,5 @@
 from django import forms
-from gestion_inmuebles.models import Usuario,Inmueble
+from gestion_inmuebles.models import Usuario,Inmueble, Foto
 
 class UsuarioForm(forms.ModelForm):
     """Form definition for Usuario."""
@@ -40,4 +40,10 @@ class InmuebleForm(forms.ModelForm):
         model = Inmueble
         fields = "__all__"
         exclude = ['dueño']
-       
+
+class FotoForm(forms.ModelForm):
+    
+    class Meta:
+        model=Foto
+        fields= ['descripcion','foto']
+        

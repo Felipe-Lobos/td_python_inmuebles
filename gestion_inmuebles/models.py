@@ -97,3 +97,8 @@ class Inmueble(models.Model):
     def __str__(self):
         return self.nombre
 
+
+class Foto(models.Model):
+    descripcion = models.CharField(max_length=255, blank=True, null=True, default='')
+    foto = models.ImageField(upload_to='inmuebles/')
+    inmueble = models.ManyToManyField(Inmueble,related_name='fotos')
