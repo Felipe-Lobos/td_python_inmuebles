@@ -135,4 +135,4 @@ def inmuebles_foto_eliminar(request, id_inmueble,id_foto):
     if inmueble.dueño == user:
         inmueble.fotos.remove(foto)
         print('remove')
-    return redirect('agregar_foto')
+    return redirect('profile')
