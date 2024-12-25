@@ -2,13 +2,24 @@
 
 
 {% block title %}
-    Detalle Inmueble
+    Inicio Inmuebles
 {% endblock title %}
     
 
 {% block content %}
 
-index
+<main>
+    <section class="hero-section">
+        <h1>
+            Encuentra el inmueble de tus sueños
+        </h1>
+        <button>
+            <a href="{% url 'inmuebles' %}">
+                Buscar
+            </a>
+        </button>
+    </section>
+</main>
 
 {% endblock content %}
     

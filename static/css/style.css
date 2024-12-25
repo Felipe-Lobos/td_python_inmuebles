@@ -1,0 +1,48 @@
+/* Aseguramos que el contenedor principal llene toda la pantalla */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* Altura mínima de toda la pantalla */
+    margin: 0;
+    background-color: #F9F9F9;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+main {
+    flex: 1;
+    /* Hace que el contenido principal ocupe el espacio restante */
+}
+
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    height: 400px;
+    background: rgb(39, 55, 77);
+    background: linear-gradient(180deg, rgba(39, 55, 77, 1) 0%, rgba(82, 109, 130, 1) 100%);
+}
+
+.hero-section h1 {
+    color: #e4e4e4;
+    font-size: 4em;
+}
+
+.hero-section button {
+    border: 2px #526D82 solid;
+    border-radius: 10px;
+    color: #526D82;
+    
+    font-size: 1.5em;
+    transition: all 0.3s ease;
+
+    &:hover {
+        box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.3);
+        scale: 1.02;
+    }
+    a{
+        color: #526D82;
+        text-decoration: none;
+    }
+}

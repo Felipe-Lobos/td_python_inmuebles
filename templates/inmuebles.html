@@ -61,26 +61,7 @@ Inmuebles
     <div class="row">
         {% for inmueble in inmuebles %}
         <div class="col col-lg-3 col-md-4 col-sm-12  mt-4">
-            <article class="card card-inmueble h-100 my-3" >
-                <a class="card-link stretched-link" href="{% url 'inmuebles_detalle' id_inmueble=inmueble.id %}"></a>
-                <div class="card-header">
-                    <h5 class="card-title">{{inmueble.nombre}}</h5>
-                </div>
-                <div class="card-body">
-                    <!-- <p>{{inmueble.descripcion}}</p> -->
-                    <p class="card-text display-6">${{inmueble.precio_mensual|floatformat|intcomma}}</p>
-                    <p class="card-text">{{inmueble.habitaciones}} Habitaciones | {{inmueble.banos}} Baños
-                        <br>{{inmueble.estacionamientos}} Estacionamientos
-                    </p>
-                    <p class="card-text">{{inmueble.m2_construidos|floatformat}} m² Construidos <br>
-                        {{inmueble.m2_totales|floatformat}} m² Totales</p>
-                    <img src="{{inmueble.fotos.all.0.foto.url}}" class="w-100" alt="" srcset="">
-                </div>
-                <div class="card-footer">
-                    <p class="card-text mb-0">{{inmueble.comuna}}</p>
-                    <p class="card-text">{{inmueble.direccion}}</p>
-                </div>
-            </article>
+            {% include 'components/inmueble_card.html' %}
         </div>
         {% endfor %}
     </div>

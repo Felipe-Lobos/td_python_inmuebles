@@ -22,9 +22,12 @@ def registro(request):
         form = UsuarioForm()
     return render(request, 'register.html', {'form':form})
 
-@login_required(login_url='/login/')
+#@login_required(login_url='/login/')
 def pagina_principal(request):
-    context  = {}
+    regiones = Region.objects.all()
+    context  = {
+        'regiones':regiones
+    }
     return render(request,'index.html',context)
 
 @login_required
